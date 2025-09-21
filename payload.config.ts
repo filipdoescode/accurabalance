@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { mongooseAdapter } from '@payloadcms/db-mongodb'; // database-adapter-import
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
-import sharp from 'sharp';
+// import sharp from 'sharp';
 
 import { Media } from './collections/Media';
 import { Users } from './collections/Users';
@@ -30,7 +30,8 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   // database-adapter-config-end
-  sharp,
+  // TODO: Add
+  sharp: undefined,
   plugins: [
     // payloadCloudPlugin(),
     // storage-adapter-placeholder
