@@ -1,11 +1,11 @@
-import { SiteConfig } from "@/types"
+import { SiteConfig } from '@/types';
 
 export const siteConfig: SiteConfig = {
-  name: "Bookkeeping",
-  description: "Bookkeeping is a bookkeeping service for small businesses.",
-  url: "https://sarabookkeeping.com",
-  ogImage: "/og-image.jpg",
+  name: 'AccuraBalance',
+  description: 'Professional Bookkeeping Services for Small Businesses',
+  url: 'https://accuraBalance.com',
+  ogImage: '/og-image.jpg',
   links: {
-    linkedin: "https://www.linkedin.com/in/sara-bookkeeping/",
+    linkedin: 'https://www.linkedin.com/in/accurabalance/',
   },
-}
+};
