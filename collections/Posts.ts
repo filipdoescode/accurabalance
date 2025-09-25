@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload"
+import { slugField } from "payload-plugin-slug"
 
 import { Categories } from "./Categories"
 import { Tags } from "./Tags"
@@ -15,12 +16,7 @@ export const Posts: CollectionConfig = {
       type: "text",
       required: true,
     },
-    {
-      name: "slug",
-      type: "text",
-      unique: true,
-      required: true,
-    },
+    ...slugField(),
     {
       name: "excerpt",
       type: "textarea",

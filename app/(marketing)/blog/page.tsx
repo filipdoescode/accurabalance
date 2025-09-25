@@ -9,6 +9,8 @@ export default async function BlogPage() {
     collection: "posts",
   })
 
+  console.log("[posts]", posts)
+
   return (
     <div className="container">
       <Suspense fallback={<div>Loading...</div>}>
@@ -20,12 +22,14 @@ export default async function BlogPage() {
                   pathname: "/blog" + "/" + post.slug,
                 }}
               >
-                <Image
-                  src={post.coverImage.url}
-                  width={post.coverImage.width}
-                  height={post.coverImage.height}
-                  alt={post.coverImage.alt}
-                />
+                {post.coverImage && (
+                  <Image
+                    src={post.coverImage?.url}
+                    width={post.coverImage?.width}
+                    height={post.coverImage?.height}
+                    alt={post.coverImage?.alt}
+                  />
+                )}
 
                 <h2 className="text-3xl font-bold mb-2">{post.title}</h2>
                 <p>{post.excerpt}</p>
