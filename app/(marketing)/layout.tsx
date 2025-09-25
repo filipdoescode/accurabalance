@@ -59,7 +59,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
 
-          <main className="mt-[88px] flex-1">{children}</main>
+          <main className="mt-[96px] flex-1">{children}</main>
 
           <SiteFooter />
         </div>

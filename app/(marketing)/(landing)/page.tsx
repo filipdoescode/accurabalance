@@ -19,12 +19,14 @@ export default function Home() {
         <TrustSection />
       </section>
 
-      <section>
+      <section className="mb-32">
         <BlogPostSection />
       </section>
 
-      <section className="container py-32">
-        <MapSection />
+      <section className="py-32 bg-gray-50">
+        <div className="container ">
+          <MapSection />
+        </div>
       </section>
     </>
   )

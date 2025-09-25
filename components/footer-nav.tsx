@@ -1,18 +1,19 @@
-"use client";
+"use client"
 
-import { marketingConfig } from "@/config/marketing";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+import { marketingConfig } from "@/config/marketing"
+import { cn } from "@/lib/utils"
 
 export function FooterNav() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <nav>
-      <ul>
+      <ul className="flex flex-col items-start gap-1">
         {marketingConfig.mainNav.map((item, index) => {
-          const isPathActive = pathname === item.href;
+          const isPathActive = pathname === item.href
 
           return (
             <li key={item.title + index}>
@@ -27,9 +28,9 @@ export function FooterNav() {
                 {item.title}
               </Link>
             </li>
-          );
+          )
         })}
       </ul>
     </nav>
-  );
+  )
 }
