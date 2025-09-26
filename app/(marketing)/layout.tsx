@@ -3,7 +3,7 @@ import { DM_Sans, Roboto as FontSans } from "next/font/google"
 
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
-// @ts-ignore
+// @ts-expect-error .css file
 import "./globals.css"
 
 import { siteConfig } from "@/config/site"

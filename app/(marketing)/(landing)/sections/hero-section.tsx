@@ -6,7 +6,6 @@ import { ServiceCard } from "@/components/service-card"
 
 import landingLogoBg from "@/public/assets/landing/accountan4-section-bg1.png"
 import landing_img from "@/public/assets/landing/landing-woman.webp"
-
 import { MarketingContent } from "../content"
 
 export function HeroSection() {
