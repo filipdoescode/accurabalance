@@ -16,6 +16,7 @@ export default async function Page({
       slug: { equals: slug },
     },
     limit: 1,
+    depth: 1,
   })
 
   if (data.totalDocs === 0) {

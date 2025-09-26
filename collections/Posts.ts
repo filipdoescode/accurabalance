@@ -1,5 +1,5 @@
-import type { CollectionConfig } from "payload"
-import { slugField } from "payload-plugin-slug"
+import type { CollectionConfig, CollectionSlug } from "payload"
+import slugify from "slugify"
 
 import { Categories } from "./Categories"
 import { Tags } from "./Tags"
@@ -16,10 +16,19 @@ export const Posts: CollectionConfig = {
       type: "text",
       required: true,
     },
-    ...slugField(),
+    {
+      name: "slug",
+      type: "text",
+      required: true,
+      unique: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
     {
       name: "excerpt",
       type: "textarea",
+      required: true,
     },
     {
       name: "content",
@@ -30,6 +39,7 @@ export const Posts: CollectionConfig = {
       name: "coverImage",
       type: "upload",
       relationTo: "media",
+      required: true,
     },
     {
       name: "author",
@@ -40,13 +50,13 @@ export const Posts: CollectionConfig = {
     {
       name: "categories",
       type: "relationship",
-      relationTo: Categories.slug,
+      relationTo: Categories.slug as CollectionSlug,
       hasMany: true,
     },
     {
       name: "tags",
       type: "relationship",
-      relationTo: Tags.slug,
+      relationTo: Tags.slug as CollectionSlug,
       hasMany: true,
     },
     {
@@ -63,4 +73,13 @@ export const Posts: CollectionConfig = {
       defaultValue: "draft",
     },
   ],
+  hooks: {
+    beforeValidate: [
+      async ({ data }) => {
+        if (data?.title && !data?.slug) {
+          data.slug = slugify(data.title, { lower: true, strict: true })
+        }
+      },
+    ],
+  },
 }

@@ -4,10 +4,9 @@ import { fileURLToPath } from "url"
 import { mongooseAdapter } from "@payloadcms/db-mongodb" // database-adapter-import
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import { buildConfig } from "payload"
+import sharp from "sharp"
 
 import { Categories } from "./collections/Categories"
-// import sharp from 'sharp';
-
 import { Media } from "./collections/Media"
 import { Posts } from "./collections/Posts"
 import { Tags } from "./collections/Tags"
@@ -33,9 +32,8 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
   }),
-  // database-adapter-config-end
-  // TODO: Add
-  sharp: undefined,
+  // @ts-ignore
+  sharp,
   plugins: [
     // payloadCloudPlugin(),
     // storage-adapter-placeholder
