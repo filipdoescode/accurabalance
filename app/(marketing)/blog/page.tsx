@@ -1,33 +1,22 @@
+// app/blog/page.tsx
 import { Suspense } from "react"
 
-import { Media } from "@/types/payload-types"
 import { payload } from "@/lib/payload"
-import { BlogCard } from "@/components/blog-card"
 import { PostsLoader } from "@/components/posts-loader"
 
-export default async function BlogPage() {
-  const posts = await payload.find({
+import { Posts } from "./posts"
+
+export default function BlogPage() {
+  const postsPromise = payload.find({
     collection: "posts",
     depth: 1,
   })
 
-  console.log("[posts]", posts)
-
   return (
     <div className="container">
-      <ul className="flex gap-8 flex-wrap justify-around">
+      <ul className="flex gap-8 flex-wrap justify-between">
         <Suspense fallback={<PostsLoader />}>
-          {posts.docs.length > 0 &&
-            posts.docs.map((post) => (
-              <BlogCard
-                key={post.id}
-                title={post.title}
-                // TODO: remove as
-                excerpt={post.excerpt as string}
-                coverImage={post.coverImage as Media}
-                slug={post.slug}
-              />
-            ))}
+          <Posts posts={postsPromise} />
         </Suspense>
       </ul>
     </div>

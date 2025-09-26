@@ -7,8 +7,8 @@ import { FooterNav } from "./footer-nav"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-gray-50">
-      <div className="container py-4">
+    <footer className="bg-gray-50 ">
+      <div className="container py-4 ">
         <div className="flex justify-around gap-10">
           <div className="grow basis-full space-y-2 max-w-[400px]">
             <div className="flex items-center gap-2 font-bold italic">

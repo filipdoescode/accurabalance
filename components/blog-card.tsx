@@ -52,6 +52,7 @@ export function BlogCard({ title, excerpt, coverImage, slug }: BlogCardProps) {
                 pathname: "/blog" + "/" + slug,
               }}
               className={cn(buttonVariants())}
+              prefetch
             >
               Read more
             </Link>

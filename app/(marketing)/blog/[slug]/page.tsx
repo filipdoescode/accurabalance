@@ -3,6 +3,16 @@ import { RichText } from "@payloadcms/richtext-lexical/react"
 
 import { payload } from "@/lib/payload"
 
+export async function generateStaticParams() {
+  const posts = await payload.find({
+    collection: "posts",
+    limit: 100,
+    depth: 1,
+  })
+
+  return posts.docs.map((post) => ({ slug: post.slug }))
+}
+
 export default async function Page({
   params,
 }: {
